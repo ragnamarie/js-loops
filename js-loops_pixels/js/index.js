@@ -123,3 +123,13 @@ const pixelValues = [
 ];
 
 const canvas = document.querySelector('[data-js="canvas"]');
+
+for (let i = 0; i < pixelValues.length; i++) {
+  for (let j = 0; j < pixelValues[i].length; j++) {
+    const pixel = document.createElement("div");
+    pixel.className = "pixel";
+    pixel.style.backgroundColor = pixelValues[i][j]; // why can pixelValues[i][j] go quotation mark less here?
+    canvas.append(pixel);
+    console.log("values: " + pixelValues[i][j]);
+  }
+}
