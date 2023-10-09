@@ -2,13 +2,26 @@ console.clear();
 
 const starContainer = document.querySelector('[data-js="star-container"]');
 
-function renderStars() {
+function renderStars(filledStars) {
   // reset the star container before rerendering stars
   starContainer.innerHTML = "";
 
   //--v-- your code here --v--
-
-  //--^-- your code here --^--
+  for (let counter = 1; counter < 6; counter++) {
+    const newStar = document.createElement("img");
+    if (filledStars < counter) {
+      newStar.setAttribute("src", "./assets/star-empty.svg");
+      newStar.setAttribute("index", counter);
+    } else {
+      newStar.setAttribute("src", "./assets/star-filled.svg");
+      newStar.setAttribute("index", counter);
+    }
+    newStar.addEventListener("click", () => {
+      renderStars(counter);
+    });
+    starContainer.append(newStar);
+    //--^-- your code here --^--
+  }
 }
 
-renderStars();
+renderStars(0);
